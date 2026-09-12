@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Github } from "lucide-react";
 import { profile } from "@/data/portfolio";
-import { GithubIcon } from "./Navbar";
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
@@ -55,7 +54,7 @@ export function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-soft opacity-60" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent-soft" />
             </span>
-            Available for AI engineering roles
+            Open to internships &amp; collaborations
           </motion.p>
 
           <motion.h1
@@ -63,16 +62,14 @@ export function Hero() {
             className="max-w-4xl text-5xl font-bold leading-[1.02] tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-[5.5rem]"
           >
             HARI
-            <span className="block bg-gradient-to-b from-accent-soft via-accent-soft/85 to-accent/70 bg-clip-text text-transparent">
-              PRASATH
-            </span>
+            <span className="block text-soft">PRASATH</span>
           </motion.h1>
 
           <motion.p
             variants={item}
             className="mt-6 font-mono text-sm uppercase tracking-[0.3em] text-accent-soft sm:text-[15px]"
           >
-            AI &amp; Machine Learning Developer
+            AI & Machine Learning Developer
           </motion.p>
 
           <motion.p
@@ -119,5 +116,3 @@ export function Hero() {
     </section>
   );
 }
-
-export { GithubIcon };

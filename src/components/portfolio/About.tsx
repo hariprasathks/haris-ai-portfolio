@@ -20,13 +20,10 @@ export function About() {
             <Reveal delay={0.1} className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
               <p>
                 I'm Hari Prasath, an AI &amp; Machine Learning developer based in
-                Pollachi, Tamil Nadu. I study{" "}
-                <span className="text-foreground">
-                  B.Sc. Artificial Intelligence and Machine Learning
-                </span>{" "}
-                at Shri Nehru Maha Vidyalaya College of Arts and Science
-                (expected 2028) — but most of what I ship comes from building
-                real products end to end.
+                Pollachi, Tamil Nadu. I'm pursuing a B.Sc. in Artificial
+                Intelligence and Machine Learning at Shri Nehru Maha Vidyalaya
+                College of Arts and Science, graduating in 2028 — but most of
+                what I ship comes from building real products end to end.
               </p>
               <p>
                 My work sits at the intersection of applied AI and web
@@ -39,7 +36,7 @@ export function About() {
                 Right now I'm focused on RAG systems, LLM API integrations, and
                 the full-stack craft that turns them into tools people use —
                 like StudyMate AI, a deployed RAG study assistant, and WorkSkills
-                Aira, a bilingual career guidance chatbot.
+                AIRA, a bilingual career guidance chatbot.
               </p>
             </Reveal>
           </div>
@@ -74,9 +71,9 @@ export function About() {
                   <GraduationCap className="mt-0.5 h-4 w-4 shrink-0 text-accent-soft" />
                   <p>
                     <span className="text-muted-foreground">education:</span>{" "}
-                    <span className="text-foreground">B.Sc. AI &amp; ML</span>
+                    <span className="text-foreground">B.Sc. Artificial Intelligence &amp; Machine Learning</span>
                     <span className="block pl-0 text-muted-foreground">
-                      SNMV College of Arts and Science · 2028
+                      Shri Nehru Maha Vidyalaya College of Arts and Science · 2028
                     </span>
                   </p>
                 </div>

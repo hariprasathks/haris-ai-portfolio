@@ -1,17 +1,17 @@
 {
-  "name": "freebuff.com application",
-  "short_name": "freebuff.com",
-  "description": "freebuff.com application",
+  "name": "Hari Prasath's Portfolio",
+  "short_name": "Hari Prasath",
+  "description": "Portfolio of Hari Prasath — AI & Machine Learning Developer building full-stack products with LLMs, RAG, and vector search.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "background_color": "#050315",
+  "theme_color": "#050315",
   "icons": [
     {
-      "src": "/logo.png",
+      "src": "/logo.svg",
       "sizes": "any",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/svg+xml",
+      "purpose": "any"
     }
   ]
 }

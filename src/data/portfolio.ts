@@ -4,7 +4,7 @@ export const profile = {
   role: "AI & Machine Learning Developer",
   location: "Pollachi, Tamil Nadu, India",
   tagline:
-    "I build and ship full-stack AI products using LLMs, RAG, vector search, and modern web technologies.",
+    "I build and ship full-stack AI products — LLM applications, RAG pipelines, and vector search — on top of modern web technologies.",
   email: "hariprasathks22@gmail.com",
   github: "https://github.com/hariprasathks",
   linkedin: "https://www.linkedin.com/in/hari-prasath-ks-8bb860379/",
@@ -32,7 +32,7 @@ export const projects: Project[] = [
     name: "StudyMate AI",
     subtitle: "Full-Stack RAG Study Assistant",
     summary:
-      "Students upload PDF/DOCX study material, ask grounded questions, generate quizzes, and create flashcards from their own documents.",
+      "A study assistant that lets students upload PDF or DOCX material and get grounded answers, quizzes, and flashcards generated from their own documents.",
     tech: [
       "React",
       "Vite",
@@ -53,10 +53,10 @@ export const projects: Project[] = [
   },
   {
     index: "02",
-    name: "WorkSkills Aira",
+    name: "WorkSkills AIRA",
     subtitle: "AI Career Guidance Chatbot",
     summary:
-      "A bilingual career guidance chatbot built on the Anthropic Claude API with a polished, responsive chat experience.",
+      "A bilingual career guidance chatbot powered by the Anthropic Claude API, delivered through a polished, responsive chat experience in English and Tamil.",
     tech: ["Node.js", "Express.js", "Anthropic Claude API"],
     repoUrl: "https://github.com/hariprasathks/WORKSKILLS_AIRA",
     highlights: [
@@ -98,22 +98,22 @@ export const capabilities = [
   {
     title: "RAG Pipelines",
     description:
-      "Ingest documents, extract and chunk text, embed with LLM models, and index into vector stores for retrieval.",
+      "Ingest documents, extract and chunk text, generate embeddings, and index everything into a vector store for retrieval.",
   },
   {
     title: "Grounded LLM Responses",
     description:
-      "Answers constrained to retrieved context with citations back to the source document.",
+      "Answers constrained to the retrieved context, with citations that point back to the source document.",
   },
   {
     title: "Vector Search",
     description:
-      "Semantic retrieval over embedded document chunks using vector databases like ChromaDB.",
+      "Semantic retrieval over embedded document chunks using a vector database such as ChromaDB.",
   },
   {
     title: "LLM API Integration",
     description:
-      "Building on Google Gemini and Anthropic Claude APIs with secure, env-var based key handling.",
+      "Integrating the Google Gemini and Anthropic Claude APIs with secure, environment-variable-based key handling.",
   },
   {
     title: "REST API Backends",
@@ -123,7 +123,7 @@ export const capabilities = [
   {
     title: "Full-Stack Product Shipping",
     description:
-      "React + TypeScript frontends deployed separately from AI backends — live, not prototypes.",
+      "React and TypeScript frontends deployed separately from AI backends — shipped, not prototyped.",
   },
 ] as const;
 
