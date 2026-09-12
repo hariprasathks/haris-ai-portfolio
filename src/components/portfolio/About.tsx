@@ -1,23 +1,27 @@
-import { GraduationCap, MapPin, Sparkles } from "lucide-react";
 import { profile } from "@/data/portfolio";
-import { HighlightCard, Reveal, SectionHeading } from "./Shared";
+import { PaperPanel, Reveal, SectionHeading } from "./Shared";
 
 export function About() {
   return (
-    <section id="about" className="relative py-28 sm:py-36">
+    <section id="about" className="section-frame py-24 sm:py-32">
+      <span className="edge-label" aria-hidden="true">About</span>
+
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="grid gap-12 md:grid-cols-[1.2fr_0.8fr] md:gap-16">
-          <div>
-            <SectionHeading
-              kicker="About"
-              title={
-                <>
-                  Building practical AI products,
-                  <span className="text-accent-soft"> not demos.</span>
-                </>
-              }
-            />
-            <Reveal delay={0.1} className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+        <SectionHeading
+          kicker="01 · About"
+          title={
+            <>
+              Building practical AI products,{" "}
+              <span className="font-editorial font-normal italic text-accent-soft">
+                not demos.
+              </span>
+            </>
+          }
+        />
+
+        <div className="mt-14 grid gap-12 lg:grid-cols-[1.25fr_0.75fr] lg:gap-20">
+          <Reveal delay={0.08}>
+            <div className="space-y-6 text-[15px] leading-[1.85] text-muted-foreground sm:text-base">
               <p>
                 I'm Hari Prasath, an AI &amp; Machine Learning developer based in
                 Pollachi, Tamil Nadu. I'm pursuing a B.Sc. in Artificial
@@ -38,61 +42,44 @@ export function About() {
                 like StudyMate AI, a deployed RAG study assistant, and WorkSkills
                 AIRA, a bilingual career guidance chatbot.
               </p>
-            </Reveal>
-          </div>
+            </div>
+          </Reveal>
 
-          <Reveal delay={0.2} className="md:pt-16">
-            <HighlightCard className="p-6 sm:p-7">
-              <div className="flex items-center justify-between border-b border-border pb-4">
-                <div className="flex items-center gap-2">
-                  <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-amber-400/70" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
-                </div>
-                <span className="font-mono text-xs text-muted-foreground">hari — profile</span>
-              </div>
+          {/* Technical identity panel */}
+          <Reveal delay={0.16}>
+            <PaperPanel className="p-6 sm:p-7">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-soft-muted">
+                Identity
+              </p>
 
-              <div className="space-y-4 pt-6 font-mono text-[13px] leading-relaxed">
-                <div className="flex items-start gap-3">
-                  <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-accent-soft" />
-                  <p>
-                    <span className="text-muted-foreground">role:</span>{" "}
-                    <span className="text-foreground">AI &amp; ML Developer</span>
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent-soft" />
-                  <p>
-                    <span className="text-muted-foreground">location:</span>{" "}
-                    <span className="text-foreground">{profile.location}</span>
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <GraduationCap className="mt-0.5 h-4 w-4 shrink-0 text-accent-soft" />
-                  <p>
-                    <span className="text-muted-foreground">education:</span>{" "}
-                    <span className="text-foreground">B.Sc. Artificial Intelligence &amp; Machine Learning</span>
-                    <span className="block pl-0 text-muted-foreground">
-                      Shri Nehru Maha Vidyalaya College of Arts and Science · 2028
-                    </span>
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="mt-0.5 text-accent-soft">λ</span>
-                  <p>
-                    <span className="text-muted-foreground">focus:</span>{" "}
-                    <span className="text-foreground">RAG · LLMs · Vector Search</span>
-                  </p>
-                </div>
-                <div className="border-t border-border pt-4">
-                  <p className="text-muted-foreground">
-                    <span className="text-accent-soft">&gt;</span> status:{" "}
-                    <span className="text-foreground">open to internships &amp; collaborations</span>
-                    <span className="ml-1 inline-block h-3.5 w-[7px] animate-pulse bg-accent-soft align-middle" />
-                  </p>
-                </div>
-              </div>
-            </HighlightCard>
+              <dl className="mt-6 space-y-5">
+                {[
+                  ["Name", profile.name],
+                  ["Role", "AI & ML Developer"],
+                  ["Location", profile.location],
+                  ["Education", "B.Sc. AI & ML, 2028"],
+                  ["Focus", "RAG · LLMs · Vector search"],
+                ].map(([term, value]) => (
+                  <div
+                    key={term}
+                    className="flex items-baseline justify-between gap-6 border-b border-rule pb-4 last:border-0 last:pb-0"
+                  >
+                    <dt className="shrink-0 font-mono text-[10px] uppercase tracking-[0.2em] text-soft-muted">
+                      {term}
+                    </dt>
+                    <dd className="text-right text-[13px] font-medium text-foreground">
+                      {value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+
+              <p className="mt-6 font-mono text-[11px] leading-relaxed text-muted-foreground">
+                <span className="text-accent-soft">&gt;</span> open to
+                internships &amp; collaborations
+                <span className="ml-2 inline-block h-3 w-[6px] animate-pulse bg-accent-soft align-middle" />
+              </p>
+            </PaperPanel>
           </Reveal>
         </div>
       </div>

@@ -1,76 +1,84 @@
-import { Cpu } from "lucide-react";
 import { capabilities, skillGroups } from "@/data/portfolio";
 import { Reveal, SectionHeading } from "./Shared";
 
 export function Skills() {
   return (
-    <section id="skills" className="relative py-28 sm:py-36">
-      <div className="hairline absolute inset-x-0 top-0 h-px" aria-hidden="true" />
+    <section id="skills" className="section-frame py-24 sm:py-32">
+      <span className="edge-label" aria-hidden="true">Capabilities</span>
 
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
-          kicker="Technical Skills"
+          kicker="03 · Technical Skills"
           title={
             <>
-              The stack behind <span className="text-accent-soft">the systems.</span>
+              The stack behind{" "}
+              <span className="font-editorial font-normal italic text-accent-soft">
+                the systems.
+              </span>
             </>
           }
         />
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2">
+        {/* Typographic skill groups: label rail + terms, no badge wall */}
+        <div className="mt-16 border-t border-rule">
           {skillGroups.map((group, i) => (
-            <Reveal key={group.label} delay={i * 0.06}>
-              <div className="group rounded-xl border border-border bg-card/40 p-6 transition-colors duration-300 hover:border-accent-soft/40 sm:p-7">
-                <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-accent-soft/90">
-                  {group.label}
-                </p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {group.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="rounded-md border border-border bg-background/60 px-3 py-1.5 text-[13px] text-soft-muted transition-colors hover:border-accent-soft/50 hover:text-foreground"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+            <Reveal key={group.label} delay={i * 0.05}>
+              <div className="group grid gap-3 border-b border-rule py-7 transition-colors sm:grid-cols-[220px_1fr] sm:gap-10 sm:py-8">
+                <div className="flex items-baseline gap-4">
+                  <span className="font-mono text-[10px] text-accent-soft/80">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="font-mono text-[11px] uppercase tracking-[0.24em] text-foreground">
+                    {group.label}
+                  </h3>
                 </div>
+                <p className="text-[15px] leading-[2] text-soft-muted transition-colors group-hover:text-soft sm:text-base">
+                  {group.skills.join("   ·   ")}
+                </p>
               </div>
             </Reveal>
           ))}
         </div>
 
-        {/* AI Engineering Capabilities */}
+        {/* AI Engineering Capabilities — numbered editorial index */}
         <div className="mt-28">
           <SectionHeading
-            kicker="AI Engineering Capabilities"
+            kicker="04 · AI Engineering Capabilities"
             title={
               <>
-                From document to <span className="text-accent-soft">grounded answer.</span>
+                From document to{" "}
+                <span className="font-editorial font-normal italic text-accent-soft">
+                  grounded answer.
+                </span>
               </>
             }
-            description="The end-to-end capabilities I use to take an AI feature from idea to production."
+            lede="The end-to-end capabilities I use to take an AI feature from idea to production."
           />
 
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 border-t border-rule">
             {capabilities.map((capability, i) => (
-              <Reveal key={capability.title} delay={i * 0.05}>
-                <div className="group relative h-full overflow-hidden rounded-xl border border-border bg-card/40 p-6 transition-colors duration-300 hover:border-accent-soft/40">
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-[11px] text-muted-foreground">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <Cpu className="h-4 w-4 text-accent-soft/70 transition-colors group-hover:text-accent-soft" />
-                  </div>
-                  <h3 className="mt-5 text-base font-semibold tracking-tight text-foreground">
+              <Reveal key={capability.title} delay={i * 0.04}>
+                <div className="group grid gap-2 border-b border-rule py-7 transition-colors hover:bg-white/[0.015] sm:grid-cols-[72px_260px_1fr] sm:items-baseline sm:gap-8 sm:py-8">
+                  <span className="font-mono text-sm text-accent-soft transition-colors group-hover:text-accent-soft/70">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="font-display text-lg font-semibold tracking-tight text-foreground sm:text-xl">
                     {capability.title}
                   </h3>
-                  <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
+                  <p className="text-sm leading-[1.85] text-muted-foreground sm:text-[15px]">
                     {capability.description}
                   </p>
                 </div>
               </Reveal>
             ))}
           </div>
+
+          <Reveal delay={0.1}>
+            <p className="mt-10 font-mono text-[11px] leading-relaxed text-soft-muted">
+              Each capability maps to a stage of a production RAG system —
+              ingest, index, retrieve, ground, serve, ship.
+            </p>
+          </Reveal>
         </div>
       </div>
     </section>

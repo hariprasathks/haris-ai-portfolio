@@ -5,7 +5,7 @@ export const profile = {
   role: "AI & Machine Learning Developer",
   location: "Pollachi, Tamil Nadu, India",
   tagline:
-    "I build and ship full-stack AI products — LLM applications, RAG pipelines, and vector search — on top of modern web technologies.",
+    "I build and ship full-stack AI products: LLM applications, RAG pipelines, and vector search on modern web technologies.",
   email: "hariprasathks22@gmail.com",
   github: "https://github.com/hariprasathks",
   linkedin: "https://www.linkedin.com/in/hari-prasath-ks-8bb860379/",

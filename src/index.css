@@ -42,13 +42,18 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-editorial: "Instrument Serif", Georgia, serif;
 }
 
 /* Portfolio palette: lightened accent tones that stay legible on #050315 */
 @theme {
-  --color-accent-soft: #7a72ff;
+  --color-accent-soft: #9d97ff;
   --color-soft: #dedcff;
-  --color-soft-muted: rgba(222, 220, 255, 0.66);
+  --color-soft-muted: rgba(222, 220, 255, 0.6);
+  --color-paper: #0c0920;
+  --color-paper-edge: #211c48;
+  --color-rule: rgba(222, 220, 255, 0.12);
 }
 
 /* CHANGE VALUES FOR THEME */
@@ -65,13 +70,13 @@
   --secondary: oklch(0.26 0.05 293);
   --secondary-foreground: oklch(0.98 0.003 293);
   --muted: oklch(0.22 0.033 293);
-  --muted-foreground: oklch(0.68 0.03 293);
+  --muted-foreground: oklch(0.74 0.03 293);
   --accent: oklch(0.26 0.05 293);
   --accent-foreground: oklch(0.98 0.003 293);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.98 0.02 293 / 10%);
   --input: oklch(0.98 0.02 293 / 15%);
-  --ring: oklch(0.26 0.05 293);
+  --ring: oklch(0.62 0.14 283);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -99,13 +104,13 @@
   --secondary: oklch(0.26 0.05 293);
   --secondary-foreground: oklch(0.98 0.003 293);
   --muted: oklch(0.22 0.033 293);
-  --muted-foreground: oklch(0.68 0.03 293);
+  --muted-foreground: oklch(0.74 0.03 293);
   --accent: oklch(0.26 0.05 293);
   --accent-foreground: oklch(0.98 0.003 293);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(0.98 0.02 293 / 10%);
   --input: oklch(0.98 0.02 293 / 15%);
-  --ring: oklch(0.26 0.05 293);
+  --ring: oklch(0.62 0.14 283);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -132,12 +137,17 @@
     @apply bg-background text-foreground font-sans antialiased;
   }
   ::selection {
-    background: rgba(67, 59, 255, 0.4);
+    background: rgba(67, 59, 255, 0.45);
     color: #fbfbfe;
   }
   button:not([disabled]),
   [role="button"]:not([disabled]) {
     cursor: pointer;
+  }
+  :focus-visible {
+    outline: 2px solid rgba(157, 151, 255, 0.85);
+    outline-offset: 3px;
+    border-radius: 2px;
   }
 }
 
@@ -145,8 +155,7 @@
   /* Dark cinematic scene wash: one deliberate violet bloom on the horizon */
   .scene-vignette {
     background:
-      radial-gradient(ellipse 90% 60% at 50% -10%, rgba(47, 39, 206, 0.22), transparent 60%),
-      radial-gradient(ellipse 70% 50% at 50% 105%, rgba(67, 59, 255, 0.1), transparent 65%),
+      radial-gradient(ellipse 90% 55% at 50% -12%, rgba(47, 39, 206, 0.2), transparent 60%),
       #050315;
   }
   .film-grain::before {
@@ -154,15 +163,53 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.035;
+    opacity: 0.03;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
   .hairline {
     background: linear-gradient(
       to right,
       transparent,
-      rgba(222, 220, 255, 0.28),
+      rgba(222, 220, 255, 0.22),
       transparent
     );
+  }
+  /* Section rhythm: scroll-margin for sticky nav + editorial side rails */
+  .section-frame {
+    position: relative;
+    scroll-margin-top: 5rem;
+  }
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--color-accent-soft);
+  }
+  .edge-label {
+    position: absolute;
+    top: 8.5rem;
+    display: none;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(222, 220, 255, 0.4);
+    transform: rotate(90deg);
+    transform-origin: left top;
+  }
+  @media (min-width: 1280px) {
+    .edge-label {
+      display: block;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }

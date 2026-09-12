@@ -5,11 +5,11 @@ import { cn } from "@/lib/utils";
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
 export const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: easeOut },
+    transition: { duration: 0.6, ease: easeOut },
   },
 };
 
@@ -27,7 +27,7 @@ export function Reveal({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: true, margin: "-60px" }}
       variants={fadeUp}
       transition={{ delay }}
     >
@@ -36,40 +36,43 @@ export function Reveal({
   );
 }
 
+/** Editorial section header: mono kicker + display heading + optional lede. */
 export function SectionHeading({
   kicker,
   title,
-  description,
+  lede,
   align = "left",
+  className,
 }: {
   kicker: string;
   title: ReactNode;
-  description?: string;
+  lede?: string;
   align?: "left" | "center";
+  className?: string;
 }) {
   return (
     <Reveal
       className={cn(
         "max-w-2xl",
         align === "center" && "mx-auto text-center",
+        className,
       )}
     >
-      <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-accent-soft/90">
-        {kicker}
-      </p>
-      <h2 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-[2.75rem] md:leading-tight">
+      <p className="kicker">{kicker}</p>
+      <h2 className="mt-5 font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-[2.75rem] md:leading-[1.08]">
         {title}
       </h2>
-      {description ? (
-        <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-          {description}
+      {lede ? (
+        <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground sm:text-base">
+          {lede}
         </p>
       ) : null}
     </Reveal>
   );
 }
 
-export function HighlightCard({
+/** Raised panel on the deep-space background. No glow, no glass. */
+export function PaperPanel({
   className,
   children,
 }: {
@@ -79,22 +82,40 @@ export function HighlightCard({
   return (
     <div
       className={cn(
-        "group relative overflow-hidden rounded-xl border border-border bg-card/40 backdrop-blur-sm transition-colors duration-300 hover:border-accent-soft/40",
+        "rounded-lg border border-paper-edge bg-paper",
         className,
       )}
     >
-      <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-        <div className="absolute -top-24 left-1/2 h-40 w-[120%] -translate-x-1/2 rounded-full bg-accent/10 blur-3xl" />
-      </div>
-      <div className="relative">{children}</div>
+      {children}
     </div>
   );
 }
 
+/** Small technical term chip used sparingly (tech stacks, metadata). */
 export function TechBadge({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex items-center rounded-full border border-border bg-background/60 px-2.5 py-1 font-mono text-[11px] tracking-wide text-soft-muted transition-colors hover:border-accent-soft/50 hover:text-soft">
+    <span className="inline-flex items-center border border-rule px-2.5 py-1 font-mono text-[11px] tracking-wide text-soft-muted">
       {children}
     </span>
+  );
+}
+
+/** Shared typographic link arrow treatment for outbound links. */
+export function LinkArrow({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+      className={cn("h-3.5 w-3.5", className)}
+    >
+      <path
+        d="M4.5 11.5 11.5 4.5M11.5 4.5H5.75M11.5 4.5v5.75"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 }

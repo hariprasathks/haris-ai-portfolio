@@ -1,71 +1,74 @@
-import { ArrowUpRight, GitBranch } from "lucide-react";
-import { projects, profile } from "@/data/portfolio";
-import { Reveal, SectionHeading } from "./Shared";
+import { profile, projects } from "@/data/portfolio";
+import { LinkArrow, Reveal, SectionHeading } from "./Shared";
 
 export function GitHubSection() {
   return (
-    <section id="github" className="relative py-28 sm:py-36">
-      <div className="hairline absolute inset-x-0 top-0 h-px" aria-hidden="true" />
+    <section id="github" className="section-frame py-24 sm:py-32">
+      <span className="edge-label" aria-hidden="true">GitHub</span>
 
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="grid gap-12 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
+        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           <div>
             <SectionHeading
-              kicker="GitHub"
+              kicker="06 · GitHub"
               title={
                 <>
-                  Code lives <span className="text-accent-soft">in the open.</span>
+                  Code lives{" "}
+                  <span className="font-editorial font-normal italic text-accent-soft">
+                    in the open.
+                  </span>
                 </>
               }
-              description="Every project I build starts as a public repository. Explore the source, the commits, and how each system is structured."
+              lede="Every project starts as a public repository. Explore the source, the commits, and how each system is structured."
             />
-            <Reveal delay={0.15} className="mt-8">
+            <Reveal delay={0.15} className="mt-9">
               <a
                 href={profile.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 rounded-md bg-foreground px-6 py-3 text-sm font-semibold text-background transition-colors duration-300 hover:bg-accent-soft"
+                className="group inline-flex items-center gap-2 border border-foreground bg-foreground px-6 py-3 text-sm font-semibold text-background transition-colors duration-300 hover:bg-transparent hover:text-foreground"
               >
                 Visit GitHub Profile
-                <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                <LinkArrow className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
             </Reveal>
           </div>
 
-          <div className="flex flex-col gap-4">
+          {/* Repository index */}
+          <div className="border-t border-rule">
             {projects.map((project, i) => (
-              <Reveal key={project.name} delay={i * 0.08}>
+              <Reveal key={project.name} delay={i * 0.07}>
                 <a
                   href={project.repoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block rounded-xl border border-border bg-card/40 p-6 transition-colors duration-300 hover:border-accent-soft/40"
+                  className="group flex items-center justify-between gap-6 border-b border-rule py-6 transition-colors hover:bg-white/[0.015]"
                 >
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="flex min-w-0 items-center gap-3">
-                      <GitBranch className="h-4 w-4 shrink-0 text-accent-soft" />
-                      <span className="truncate font-mono text-sm font-medium text-foreground">
-                        hariprasathks/{project.repoUrl.split("/").pop()}
-                      </span>
-                    </div>
-                    <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent-soft" />
-                  </div>
-                  <p className="mt-3 pl-7 text-sm text-muted-foreground">
-                    {project.subtitle}
-                  </p>
+                  <span className="min-w-0">
+                    <span className="block truncate font-mono text-sm text-foreground sm:text-[15px]">
+                      <span className="text-muted-foreground">hariprasathks/</span>
+                      {project.repoUrl.split("/").pop()}
+                    </span>
+                    <span className="mt-1.5 block text-sm text-muted-foreground">
+                      {project.subtitle}
+                    </span>
+                  </span>
+                  <LinkArrow className="shrink-0 text-muted-foreground transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent-soft" />
                 </a>
               </Reveal>
             ))}
 
-            <Reveal delay={0.2}>
+            <Reveal delay={0.16}>
               <a
                 href={`${profile.github}?tab=repositories`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between rounded-xl border border-dashed border-border p-6 text-sm text-muted-foreground transition-colors duration-300 hover:border-accent-soft/50 hover:text-foreground"
+                className="group flex items-center justify-between gap-6 border-b border-rule py-6 transition-colors hover:bg-white/[0.015]"
               >
-                <span>See all repositories on GitHub</span>
-                <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground transition-colors group-hover:text-foreground">
+                  All repositories
+                </span>
+                <LinkArrow className="shrink-0 text-muted-foreground transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent-soft" />
               </a>
             </Reveal>
           </div>
