@@ -69,6 +69,17 @@ export function Contact() {
             <MapPin className="h-3.5 w-3.5 text-accent-soft/80" />
             {profile.location}
           </p>
+
+          <p className="mt-6 text-center text-sm text-muted-foreground">
+            Prefer a document?{" "}
+            <a
+              href="/Hari-Prasath-Portfolio.pdf"
+              download="Hari-Prasath-Portfolio.pdf"
+              className="font-medium text-foreground underline decoration-accent-soft/50 underline-offset-4 transition-colors hover:text-accent-soft"
+            >
+              Download this portfolio as a PDF
+            </a>
+          </p>
         </Reveal>
       </div>
     </section>
