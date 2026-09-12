@@ -23,7 +23,7 @@ export function Skills() {
         <div className="mt-16 border-t border-rule">
           {skillGroups.map((group, i) => (
             <Reveal key={group.label} delay={i * 0.05}>
-              <div className="group grid gap-3 border-b border-rule py-7 transition-colors sm:grid-cols-[220px_1fr] sm:gap-10 sm:py-8">
+              <div className="skill-row group relative grid gap-3 border-b border-rule py-7 transition-colors sm:grid-cols-[220px_1fr] sm:gap-10 sm:py-8">
                 <div className="flex items-baseline gap-4">
                   <span className="font-mono text-[10px] text-accent-soft/80">
                     {String(i + 1).padStart(2, "0")}
@@ -58,7 +58,7 @@ export function Skills() {
           <div className="mt-14 border-t border-rule">
             {capabilities.map((capability, i) => (
               <Reveal key={capability.title} delay={i * 0.04}>
-                <div className="group grid gap-2 border-b border-rule py-7 transition-colors hover:bg-white/[0.015] sm:grid-cols-[72px_260px_1fr] sm:items-baseline sm:gap-8 sm:py-8">
+                <div className="capability-row group relative grid gap-2 border-b border-rule py-7 transition-colors hover:bg-white/[0.015] sm:grid-cols-[72px_260px_1fr] sm:items-baseline sm:gap-8 sm:py-8">
                   <span className="font-mono text-sm text-accent-soft transition-colors group-hover:text-accent-soft/70">
                     {String(i + 1).padStart(2, "0")}
                   </span>

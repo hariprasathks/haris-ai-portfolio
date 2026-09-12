@@ -2,13 +2,13 @@
   "name": "Hari Prasath's Portfolio",
   "short_name": "Hari Prasath",
   "description": "Portfolio of Hari Prasath — AI & Machine Learning Developer building full-stack products with LLMs, RAG, and vector search.",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#050315",
   "theme_color": "#050315",
   "icons": [
     {
-      "src": "/logo.svg",
+      "src": "./logo.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"

@@ -15,8 +15,11 @@ function ArchitectureFlow() {
   ];
 
   return (
-    <div className="mt-10 border-y border-rule py-8">
-      <p className="kicker mb-6">System flow</p>
+    <div className="project-flow relative mt-10 border-y border-rule py-8">
+      <div className="mb-6 flex items-center justify-between gap-4">
+        <p className="kicker">System flow</p>
+        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-soft-muted">input → answer</span>
+      </div>
       <ol className="flex flex-wrap items-center gap-x-2 gap-y-3">
         {stages.map((stage, i) => (
           <li key={stage} className="flex items-center gap-2">
@@ -47,7 +50,7 @@ function ArchitectureFlow() {
 function FlagshipCaseStudy({ project }: { project: Project }) {
   return (
     <Reveal>
-      <PaperPanel className="overflow-hidden">
+              <PaperPanel className="overflow-hidden">
         {/* Index + status masthead */}
         <div className="flex items-start justify-between border-b border-rule px-6 py-5 sm:px-10 sm:py-6">
           <div className="flex items-baseline gap-4">

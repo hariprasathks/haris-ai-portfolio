@@ -80,14 +80,16 @@ export function PaperPanel({
   children: ReactNode;
 }) {
   return (
-    <div
+    <motion.div
       className={cn(
-        "rounded-lg border border-paper-edge bg-paper",
+        "group/panel rounded-lg border border-paper-edge bg-paper transition-[border-color,box-shadow,transform] duration-500 hover:-translate-y-1 hover:border-accent-soft/35 hover:shadow-[0_20px_70px_rgba(25,18,90,0.22)]",
         className,
       )}
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }
 

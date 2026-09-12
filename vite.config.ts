@@ -3,9 +3,9 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 import { defineConfig } from "vite";
-
 // https://vite.dev/config/
 export default defineConfig({
+  base: process.env.GITHUB_ACTIONS ? "/haris-ai-portfolio/" : "/",
   plugins: [react(), vlyPlugin(), tailwindcss()],
   resolve: {
     alias: {
@@ -26,7 +26,6 @@ export default defineConfig({
         manualChunks: {
           // Vendor chunks for large libraries
           'react-vendor': ['react', 'react-dom', 'react-router'],
-          'convex-vendor': ['convex'],
           // Large UI library chunks
           'radix-ui': [
             '@radix-ui/react-accordion',
@@ -83,7 +82,6 @@ export default defineConfig({
       'react-dom',
       'react-dom/client',
       'react-router',
-      '@convex-dev/auth/react',
       'framer-motion',
     ],
   },
@@ -96,5 +94,9 @@ export default defineConfig({
     hmr: {
       overlay: false,
     },
+  },
+  preview: {
+    host: true,
+    allowedHosts: [".manus.computer"],
   },
 });

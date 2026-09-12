@@ -23,7 +23,7 @@ export function Hero() {
       {/* Single cinematic light source on the horizon */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-[65vh]"
+        className="hero-aurora pointer-events-none absolute inset-x-0 top-0 h-[65vh]"
         style={{
           background:
             "radial-gradient(ellipse 75% 50% at 50% -10%, rgba(47, 39, 206, 0.22), transparent 62%)",
@@ -32,7 +32,7 @@ export function Hero() {
       {/* Sparse engineering grid, fading like stage light */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-[0.045]"
+        className="hero-grid pointer-events-none absolute inset-0 opacity-[0.045]"
         style={{
           backgroundImage:
             "linear-gradient(rgba(222,220,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(222,220,255,0.5) 1px, transparent 1px)",
@@ -43,6 +43,14 @@ export function Hero() {
             "radial-gradient(ellipse 65% 55% at 50% 0%, black 25%, transparent 72%)",
         }}
       />
+
+      <div aria-hidden="true" className="hero-signal pointer-events-none absolute right-[8%] top-1/3 hidden items-center gap-3 font-mono text-[9px] uppercase tracking-[0.28em] text-soft-muted lg:flex">
+        <span className="relative flex h-2 w-2 items-center justify-center">
+          <span className="absolute h-2 w-2 animate-ping rounded-full bg-accent-soft/40" />
+          <span className="relative h-1.5 w-1.5 rounded-full bg-accent-soft" />
+        </span>
+        <span>systems online</span>
+      </div>
 
       <div className="relative mx-auto w-full max-w-6xl px-5 pt-36 pb-28 sm:px-8">
         <motion.div variants={container} initial="hidden" animate="visible">
@@ -60,15 +68,16 @@ export function Hero() {
 
           <motion.h1
             variants={item}
-            className="font-display text-[17vw] font-bold leading-[0.94] tracking-[-0.02em] text-foreground sm:text-7xl md:text-8xl lg:text-[7.5rem]"
+            className="hero-title max-w-5xl font-display text-[17vw] font-bold leading-[0.94] tracking-[-0.04em] text-foreground sm:text-7xl md:text-8xl lg:text-[7.5rem]"
           >
             HARI PRASATH
           </motion.h1>
 
           <motion.p
             variants={item}
-            className="mt-6 font-mono text-xs uppercase tracking-[0.32em] text-accent-soft sm:text-sm"
+            className="mt-6 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.32em] text-accent-soft sm:text-sm"
           >
+            <span className="h-px w-8 bg-accent-soft/70 sm:w-12" aria-hidden="true" />
             AI &amp; Machine Learning Developer
           </motion.p>
 

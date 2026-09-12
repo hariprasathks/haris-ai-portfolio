@@ -33,8 +33,9 @@ export function Contact() {
         <Reveal delay={0.1} className="mx-auto mt-14 max-w-xl">
           <a
             href={`mailto:${profile.email}`}
-            className="group flex items-center justify-between gap-4 border border-paper-edge bg-paper px-6 py-5 transition-colors duration-300 hover:border-accent-soft/50"
+            className="contact-primary group relative flex items-center justify-between gap-4 overflow-hidden border border-paper-edge bg-paper px-6 py-5 transition-[border-color,transform,box-shadow] duration-500 hover:-translate-y-1 hover:border-accent-soft/60 hover:shadow-[0_20px_60px_rgba(25,18,90,0.22)]"
           >
+            <span aria-hidden="true" className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-accent-soft via-[#5c8dff] to-transparent" />
             <span className="min-w-0">
               <span className="block font-mono text-[10px] uppercase tracking-[0.24em] text-soft-muted">
                 Email
@@ -84,7 +85,7 @@ export function Contact() {
           <p className="mt-5 text-center text-sm text-muted-foreground">
             Prefer a document?{" "}
             <a
-              href="/Hari-Prasath-Portfolio.pdf"
+              href={`${import.meta.env.BASE_URL}Hari-Prasath-Portfolio.pdf`}
               download="Hari-Prasath-Portfolio.pdf"
               className="font-medium text-foreground underline decoration-rule underline-offset-4 transition-colors hover:decoration-accent-soft"
             >

@@ -23,12 +23,30 @@ export function LinkedinIcon({ className }: { className?: string }) {
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const sections = navLinks
+      .map((link) => document.querySelector(link.href))
+      .filter((section): section is Element => Boolean(section));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible?.target.id) setActiveSection(`#${visible.target.id}`);
+      },
+      { rootMargin: "-20% 0px -60%", threshold: [0.1, 0.35, 0.7] },
+    );
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -39,7 +57,7 @@ export function Navbar() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
         scrolled
-          ? "border-b border-rule bg-[#050315]/88 backdrop-blur-md"
+          ? "border-b border-rule bg-[#050315]/88 shadow-[0_12px_40px_rgba(5,3,21,0.22)] backdrop-blur-md"
           : "border-b border-transparent",
       )}
     >
@@ -61,10 +79,16 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="group relative font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-foreground"
+              className={cn(
+                "group relative font-mono text-[11px] uppercase tracking-[0.18em] transition-colors hover:text-foreground",
+                activeSection === link.href ? "text-foreground" : "text-muted-foreground",
+              )}
             >
               {link.label}
-              <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-accent-soft transition-all duration-300 group-hover:w-full" />
+              <span className={cn(
+                "absolute -bottom-1.5 left-0 h-px bg-accent-soft transition-all duration-300",
+                activeSection === link.href ? "w-full" : "w-0 group-hover:w-full",
+              )} />
             </a>
           ))}
         </div>
@@ -97,7 +121,10 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="border-b border-rule py-3.5 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground transition-colors last:border-0 hover:text-foreground"
+                  className={cn(
+                    "border-b border-rule py-3.5 font-mono text-xs uppercase tracking-[0.18em] transition-colors last:border-0 hover:text-foreground",
+                    activeSection === link.href ? "text-foreground" : "text-muted-foreground",
+                  )}
                 >
                   {link.label}
                 </a>
