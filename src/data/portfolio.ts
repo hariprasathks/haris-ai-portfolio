@@ -1,3 +1,4 @@
+// Central content source for the portfolio — update copy here.
 export const profile = {
   name: "Hari Prasath",
   firstName: "Hari",
