@@ -26,7 +26,7 @@ export function GitHubSection() {
                 href={profile.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 border border-foreground bg-foreground px-6 py-3 text-sm font-semibold text-background transition-colors duration-300 hover:bg-transparent hover:text-foreground"
+                className="custom-btn group inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background hover:bg-transparent hover:text-foreground"
               >
                 Visit GitHub Profile
                 <LinkArrow className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

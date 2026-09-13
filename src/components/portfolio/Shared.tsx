@@ -83,7 +83,7 @@ export function PaperPanel({
   return (
     <motion.div
       className={cn(
-        "paper-depth group/panel rounded-lg border border-paper-edge bg-paper transition-[border-color,box-shadow,transform] duration-500 hover:-translate-y-1 hover:border-accent-soft/55",
+        "paper-depth liquid-glass group/panel rounded-2xl border border-paper-edge bg-paper transition-[border-color,box-shadow,transform] duration-500 hover:-translate-y-1 hover:border-accent-soft/55",
         className,
       )}
       whileHover={{ y: -4 }}
