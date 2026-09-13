@@ -5,11 +5,12 @@ import { cn } from "@/lib/utils";
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
 export const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 20, filter: "blur(6px)" },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: easeOut },
+    filter: "blur(0px)",
+    transition: { duration: 0.72, ease: easeOut },
   },
 };
 
@@ -82,7 +83,7 @@ export function PaperPanel({
   return (
     <motion.div
       className={cn(
-        "group/panel rounded-lg border border-paper-edge bg-paper transition-[border-color,box-shadow,transform] duration-500 hover:-translate-y-1 hover:border-accent-soft/35 hover:shadow-[0_20px_70px_rgba(25,18,90,0.22)]",
+        "paper-depth group/panel rounded-lg border border-paper-edge bg-paper transition-[border-color,box-shadow,transform] duration-500 hover:-translate-y-1 hover:border-accent-soft/55",
         className,
       )}
       whileHover={{ y: -4 }}

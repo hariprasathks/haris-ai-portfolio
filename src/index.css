@@ -155,8 +155,8 @@
   /* Dark cinematic scene wash: one deliberate violet bloom on the horizon */
   .scene-vignette {
     background:
-      radial-gradient(ellipse 90% 55% at 50% -12%, rgba(47, 39, 206, 0.2), transparent 60%),
-      #050315;
+      radial-gradient(ellipse 90% 55% at 50% -12%, rgba(255, 255, 255, 0.08), transparent 60%),
+      #050506;
   }
   .film-grain::before {
     content: "";
@@ -175,7 +175,7 @@
     );
   }
   .hero-title {
-    background: linear-gradient(115deg, #fbfbfe 8%, #c9c5ff 42%, #8aa6ff 78%, #fbfbfe 96%);
+    background: linear-gradient(115deg, #ffffff 8%, #bdbdc4 42%, #f4f4f5 78%, #ffffff 96%);
     background-size: 220% 100%;
     -webkit-background-clip: text;
     background-clip: text;
@@ -269,7 +269,7 @@
       display: block;
     }
   }
-  @media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) {
     *,
     *::before,
     *::after {
@@ -284,4 +284,95 @@
       animation: none !important;
     }
   }
+}
+
+/* Monochrome interaction system: black, white, graphite, and soft silver. */
+:root,
+.dark {
+  --color-accent-soft: #f4f4f5;
+  --color-soft: #e4e4e7;
+  --color-soft-muted: rgba(228, 228, 231, 0.62);
+  --color-paper: #0a0a0b;
+  --color-paper-edge: #29292d;
+  --color-rule: rgba(244, 244, 245, 0.14);
+  --ring: oklch(0.92 0 0);
+}
+
+.mono-shell {
+  background:
+    radial-gradient(ellipse 70% 34% at 50% 0%, rgba(255, 255, 255, 0.07), transparent 70%),
+    #050506;
+}
+
+.section-frame::before {
+  content: "";
+  position: absolute;
+  inset: 1.5rem 1.25rem auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.16), transparent);
+  opacity: .7;
+}
+
+.section-frame {
+  isolation: isolate;
+}
+
+.section-frame::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 8% 4% 5%;
+  border-radius: 1.5rem;
+  box-shadow: 0 28px 110px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.025);
+  pointer-events: none;
+}
+
+.custom-btn {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.78);
+  box-shadow: 0 10px 30px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.18);
+  transition: transform 320ms cubic-bezier(.22,1,.36,1), box-shadow 320ms ease, background-color 320ms ease, color 320ms ease;
+}
+
+.custom-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,.18) 48%, transparent 76%);
+  transform: translateX(-120%);
+  transition: transform 600ms cubic-bezier(.22,1,.36,1);
+}
+
+.custom-btn:hover::before,
+.custom-btn:focus-visible::before { transform: translateX(120%); }
+.custom-btn:hover { transform: translateY(-3px); box-shadow: 0 18px 44px rgba(0,0,0,.42), 0 0 0 1px rgba(255,255,255,.12); }
+.custom-btn > * { position: relative; z-index: 1; }
+
+.custom-btn-ghost {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.custom-btn-ghost::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: #f4f4f5;
+  transform: scaleX(.25);
+  transform-origin: left;
+  transition: transform 320ms ease;
+}
+
+.custom-btn-ghost:hover::after,
+.custom-btn-ghost:focus-visible::after { transform: scaleX(1); }
+
+.paper-depth { box-shadow: 0 24px 90px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.035); }
+
+@media (max-width: 767px) {
+  .section-frame::after { inset: 5% 2% 3%; }
+  .custom-btn { min-height: 44px; }
 }

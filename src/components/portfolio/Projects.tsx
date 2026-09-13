@@ -96,7 +96,7 @@ function FlagshipCaseStudy({ project }: { project: Project }) {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 border border-foreground bg-foreground px-6 py-3 text-sm font-semibold text-background transition-colors duration-300 hover:bg-transparent hover:text-foreground"
+                  className="custom-btn group inline-flex items-center gap-2 bg-foreground px-6 py-3 text-sm font-semibold text-background hover:bg-transparent hover:text-foreground"
                 >
                   Live Demo
                   <LinkArrow className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -107,7 +107,7 @@ function FlagshipCaseStudy({ project }: { project: Project }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${project.name} source code on GitHub`}
-                className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                className="custom-btn custom-btn-ghost group inline-flex items-center gap-2 px-1 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
                 <span className="underline decoration-rule underline-offset-8 group-hover:decoration-accent-soft">
                   Source
@@ -173,7 +173,7 @@ function CompanionCaseStudy({ project }: { project: Project }) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${project.name} source code on GitHub`}
-              className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="custom-btn custom-btn-ghost group inline-flex items-center gap-2 px-1 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               <span className="underline decoration-rule underline-offset-8 group-hover:decoration-accent-soft">
                 Source

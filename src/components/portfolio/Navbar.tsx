@@ -99,7 +99,7 @@ export function Navbar() {
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
-          className="flex h-9 w-9 items-center justify-center border border-rule text-foreground md:hidden"
+          className="custom-btn flex h-10 w-10 items-center justify-center border-rule bg-[#0a0a0b] text-foreground md:hidden"
         >
           {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
         </button>
@@ -112,15 +112,16 @@ export function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-            className="overflow-hidden border-b border-rule bg-[#050315]/97 backdrop-blur-md md:hidden"
+            transition={{ duration: 0.36, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden border-b border-rule bg-[#050506]/97 backdrop-blur-md md:hidden"
           >
             <div className="flex flex-col px-5 py-4">
-              {navLinks.map((link) => (
+              {navLinks.map((link, index) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
+                  style={{ transitionDelay: `${index * 45}ms` }}
                   className={cn(
                     "border-b border-rule py-3.5 font-mono text-xs uppercase tracking-[0.18em] transition-colors last:border-0 hover:text-foreground",
                     activeSection === link.href ? "text-foreground" : "text-muted-foreground",

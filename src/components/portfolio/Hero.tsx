@@ -26,7 +26,7 @@ export function Hero() {
         className="hero-aurora pointer-events-none absolute inset-x-0 top-0 h-[65vh]"
         style={{
           background:
-            "radial-gradient(ellipse 75% 50% at 50% -10%, rgba(47, 39, 206, 0.22), transparent 62%)",
+            "radial-gradient(ellipse 75% 50% at 50% -10%, rgba(255, 255, 255, 0.12), transparent 62%)",
         }}
       />
       {/* Sparse engineering grid, fading like stage light */}
@@ -107,7 +107,7 @@ export function Hero() {
               href={profile.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors duration-300 hover:text-foreground"
+              className="custom-btn custom-btn-ghost group inline-flex items-center gap-1.5 px-1 py-2 text-sm font-medium text-muted-foreground transition-colors duration-300 hover:text-foreground"
             >
               <span className="underline decoration-rule underline-offset-8 transition-colors group-hover:decoration-accent-soft">
                 GitHub
@@ -116,7 +116,7 @@ export function Hero() {
             </a>
             <a
               href={`mailto:${profile.email}`}
-              className="group inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors duration-300 hover:text-foreground"
+              className="custom-btn custom-btn-ghost group inline-flex items-center gap-1.5 px-1 py-2 text-sm font-medium text-muted-foreground transition-colors duration-300 hover:text-foreground"
             >
               <span className="underline decoration-rule underline-offset-8 transition-colors group-hover:decoration-accent-soft">
                 Email

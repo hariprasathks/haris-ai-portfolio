@@ -11,7 +11,7 @@ export function Contact() {
         className="pointer-events-none absolute inset-x-0 bottom-0 h-[45vh]"
         style={{
           background:
-            "radial-gradient(ellipse 65% 55% at 50% 112%, rgba(47, 39, 206, 0.2), transparent 65%)",
+            "radial-gradient(ellipse 65% 55% at 50% 112%, rgba(255, 255, 255, 0.1), transparent 65%)",
         }}
       />
 
@@ -52,7 +52,7 @@ export function Contact() {
               href={profile.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-between gap-3 border border-rule px-5 py-4 text-sm font-medium text-foreground transition-colors duration-300 hover:border-accent-soft/50"
+              className="custom-btn group flex items-center justify-between gap-3 border-rule px-5 py-4 text-sm font-medium text-foreground"
             >
               <span className="flex items-center gap-2.5">
                 <GithubIcon className="h-4 w-4 text-muted-foreground" />
@@ -66,7 +66,7 @@ export function Contact() {
               href={profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-between gap-3 border border-rule px-5 py-4 text-sm font-medium text-foreground transition-colors duration-300 hover:border-accent-soft/50"
+              className="custom-btn group flex items-center justify-between gap-3 border-rule px-5 py-4 text-sm font-medium text-foreground"
             >
               <span className="flex items-center gap-2.5">
                 <LinkedinIcon className="h-4 w-4 text-muted-foreground" />
